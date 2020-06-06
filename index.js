@@ -152,3 +152,28 @@ let isAnagramx2 = (str1,str2) => str1.toLowerCase().split('').sort().every((valu
 
 let output10 = isAnagramx2('Listen', 'siLent');
 console.log(output10)
+
+// CHALLENGE 5: LETTER CHANGES
+// Change every letter of the string to the one that follows it and capitalize the vowels
+// Z should turn to A
+// ex. 'hello there' === 'Ifmmp UIfsf'
+
+function letterChanges(str) {
+  let newStr = str.toLowerCase().replace(/[a-z]/gi, function (char) {
+    if ( char === 'z' || char === 'Z') {
+      return 'a'
+    } else {
+      return String.fromCharCode(char.charCodeAt() + 1)
+    }
+  })
+
+  newStr = newStr.replace(/a|e|i|o|u/gi, function(vowel) {
+    return vowel.toUpperCase();
+  });
+  return newStr
+}
+
+// Call Function
+const output11 = letterChanges('hello there'); 
+
+console.log(output11);
