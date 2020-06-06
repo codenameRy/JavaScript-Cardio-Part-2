@@ -109,3 +109,46 @@ return[].concat(...arrays)
 
 let output6 = flattenArray3([[1, 6], [3, 1], [8, 6], [7]]);
 console.log(output6)
+
+// CHALLENGE 4: ANAGRAM
+// Return true if anagram and false if not
+// ex. 'elbow' === 'below'
+// ex. 'Dormitory' === 'dirty room##'
+
+//Solution 1 with Main and Helper Functions
+function isAnagram(str1, str2) {
+  return formatStr(str1) === formatStr(str2)
+}
+  //Helper function
+
+  function formatStr(str) {
+    return str
+    .replace(/[^\w]/g, '')
+    .toLowerCase()
+    .split('') //Convert to arrays
+    .sort()
+    .join('')
+  }
+
+
+let output7 = isAnagram('elbow', 'below');
+console.log(output7)
+
+let output8 = isAnagram('Dormitory', 'dirty room##');
+console.log(output8)
+
+//Solution 2 Function using Every Method
+function isAnagramx (str1,str2){
+    const arr1 = str1.toLowerCase().split('').sort()
+    const arr2 = str2.toLowerCase().split('').sort()
+    return arr1.every((value,index) => value === arr2[index])
+}
+
+let output9 = isAnagramx('elbow', 'Below');
+console.log(output9)
+
+//Solution 3 Variable
+let isAnagramx2 = (str1,str2) => str1.toLowerCase().split('').sort().every((value,index) => value ===  str2.toLowerCase().split('').sort()[index])
+
+let output10 = isAnagramx2('Listen', 'siLent');
+console.log(output10)
